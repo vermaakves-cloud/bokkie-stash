@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0f17" />
+  <title>MyMmark Stash — Media &amp; Project Vault</title>
+  <link rel="stylesheet" href="style.css?v=7" />
+  <style>
+    .topbar { position:sticky; top:0; z-index:100; }
+    .nav-tabs { display:flex; gap:8px; flex-wrap:wrap; align-items:center; position:relative; z-index:101; }
+    .tab-btn { background:#090d14; color:var(--text); border:1px solid var(--border); border-radius:6px; padding:8px 13px; font-size:0.85rem; font-weight:700; cursor:pointer; }
+    .tab-btn:hover { border-color:var(--accent); }
+    .tab-btn.active { background:var(--accent); color:#04120c; border-color:var(--accent); }
+    .tips-banner { background:#071a12; border-bottom:1px solid var(--accent); color:#d1fae5; padding:10px 18px; font-size:0.84rem; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .help-btn { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:var(--accent-dim); color:var(--accent); border:1px solid var(--accent); font-size:0.74rem; font-weight:800; cursor:pointer; margin-left:6px; }
+    .help-pulse .help-btn { box-shadow:0 0 0 4px rgba(16,185,129,0.45); transform:scale(1.14); }
+    .help-bubble { position:fixed; max-width:320px; background:#071510; color:#e6edf7; border:1px solid var(--accent); border-radius:8px; padding:10px 12px; font-size:0.82rem; line-height:1.45; z-index:120; box-shadow:0 10px 28px rgba(0,0,0,0.75); pointer-events:none; }
+    .quick-bar { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:14px; display:flex; flex-direction:column; gap:8px; }
+    .quick-top, .filter-bar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; font-size:0.84rem; }
+    .filter-bar { margin-bottom:14px; }
+    .quick-inputs { display:flex; flex-wrap:wrap; gap:8px; }
+    .quick-inputs input { flex:1; min-width:190px; }
+    .page-wrap { max-width:1160px; margin:0 auto; padding:20px; width:100%; display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:16px; }
+    .guide-wrap { max-width:1180px; margin:0 auto; padding:20px; width:100%; display:flex; flex-direction:column; gap:18px; }
+    .diag-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:16px; }
+    .info-card { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .info-card h3 { font-size:0.98rem; color:var(--accent); display:flex; align-items:center; gap:6px; }
+    .diag-frame { background:#070b12; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+    .diag-frame svg { width:100%; height:auto; display:block; }
+    .stat-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+    .stat-box { background:#090d14; border:1px solid var(--border); border-radius:6px; padding:8px 10px; font-size:0.79rem; color:var(--muted); }
+    .stat-box strong { display:block; font-size:0.98rem; color:var(--text); margin-top:2px; }
+    .pm2-list { max-height:230px; overflow-y:auto; display:flex; flex-direction:column; gap:4px; }
+    .pm2-row { display:flex; justify-content:space-between; padding:6px 8px; background:#090d14; border-radius:5px; font-size:0.79rem; font-family:monospace; }
+    .bm-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; background:#071a12; border:1px solid var(--accent); border-radius:8px; padding:14px 18px; }
+    .bm-pill { display:inline-block; background:var(--accent); color:#04120c; font-weight:800; padding:10px 20px; border-radius:999px; text-decoration:none; font-size:0.95rem; border:2px dashed #fff; cursor:grab; }
+    .step-list { padding-left:18px; font-size:0.84rem; line-height:1.55; display:flex; flex-direction:column; gap:5px; }
+    kbd { background:#090d14; border:1px solid var(--accent); color:var(--accent); border-radius:4px; padding:1px 6px; font-family:monospace; font-size:0.77rem; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-badge">[STASH]</span><h1>MyMmark Stash</h1></div>
+    <div class="nav-tabs">
+      <button id="tabBtnLinks" type="button" class="tab-btn active">[1. Saved Links]</button>
+      <button id="tabBtnSystem" type="button" class="tab-btn">[2. System &amp; Memory]</button>
+      <button id="tabBtnGuide" type="button" class="tab-btn">[3. Easy Visual Guide]</button>
+      <button id="btnToggleTips" type="button" class="tab-btn">[? Balloon Help]</button>
+    </div>
+  </header>
+  <div id="tipsBanner" class="tips-banner hidden">
+    <span><strong>Balloon Help Active:</strong> Hover over or click any glowing green <strong>[?]</strong> circle for step-by-step guidance.</span>
+    <button id="btnCloseTips" type="button" class="btn btn-small">[Hide]</button>
+  </div>
+  <main id="viewLinks" class="workspace">
+    <aside class="sidebar">
+      <div id="globalDropzone" class="global-dropzone">
+        <strong>DRAG &amp; DROP HERE <button type="button" class="help-btn" data-tip="Drag any YouTube video thumbnail — or drag the Tune/Sliders icon left of youtube.com in Chrome's address bar — onto this box or any folder below.">?</button></strong>
+        <span>Drop a YouTube thumbnail or address-bar icon here, or onto any folder below.</span>
+      </div>
+      <button id="allItemsBtn" type="button" class="nav-all active"><span>[ALL] All Active Links</span><span id="totalCountBadge" class="count-pill">0</span></button>
+      <nav id="categoryTree" class="category-tree"></nav>
+      <div class="sidebar-actions">
+        <form id="addSubForm" class="inline-form">
+          <input id="newSubName" type="text" placeholder="New sub-folder name..." required />
+          <button type="submit" class="btn btn-small">+ Sub</button>
+          <button type="button" class="help-btn" data-tip="Click a main category above first (e.g. Projects or Movies), type a sub-folder name here, and click + Sub.">?</button>
+        </form>
+        <button id="btnAddCat" type="button" class="btn btn-ghost btn-full">+ New Main Category</button>
+      </div>
+    </aside>
+    <section class="board">
+      <form id="quickSaveForm" class="quick-bar">
+        <div class="quick-top">
+          <span>Saving into: <strong id="targetFolderLabel" style="color:var(--accent)">Quick Drop Inbox (Default)</strong> <button type="button" class="help-btn" data-tip="Click any folder on the left first to pick where links go. Copy any link in Chrome (Ctrl+L then Ctrl+C), then click [1-Click Paste Clipboard & Save]!">?</button></span>
+          <button id="btnPasteSave" type="button" class="btn btn-accent btn-small">[1-Click Paste Clipboard &amp; Save]</button>
+        </div>
+        <div class="quick-inputs">
+          <input id="quickUrlInput" type="text" placeholder="Paste YouTube, movie, or webpage link here..." />
+          <input id="quickNotesInput" type="text" placeholder="Optional note (e.g. Watch Friday)..." />
+          <button type="submit" class="btn btn-accent">Save Link</button>
+        </div>
+      </form>
+      <div class="filter-bar">
+        <div><strong id="activeHeading">All Active Links</strong><span id="itemCountBadge" class="count-pill" style="margin-left:8px">0 items</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="searchInput" type="search" placeholder="Search title, URL, or note..." />
+          <select id="statusFilter">
+            <option value="">Active Links</option>
+            <option value="unwatched">Unwatched Only</option>
+            <option value="watching">In Progress</option>
+            <option value="done">Done / Watched</option>
+            <option value="all">Everything (Incl. Archived)</option>
+          </select>
+        </div>
+      </div>
+      <div id="cardsGrid" class="cards-grid"></div>
+    </section>
+  </main>
+  <section id="viewSystem" class="page-wrap hidden">
+    <div class="info-card">
+      <h3>Browser Copy/Paste &amp; RAM Care <button type="button" class="help-btn" data-tip="Clears stuck copy/paste buffers, prunes browser shared memory, and suspends runaway 2GB+ tabs without losing tab URLs.">?</button></h3>
+      <div id="localSysBox" class="muted">Checking workstation status...</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+        <button id="btnFlushClip" type="button" class="btn btn-accent">[Clear Copy/Paste &amp; SHM]</button>
+        <button id="btnFlushBloated" type="button" class="btn">[Suspend 2GB+ Chrome Tabs]</button>
+        <button id="btnRefreshSys" type="button" class="btn btn-ghost">[Refresh]</button>
+      </div>
+      <p class="muted">Linux Mint hotkey: press <strong>Ctrl + Alt + C</strong> anytime for instant clipboard &amp; Chrome SHM flush.</p>
+    </div>
+    <div class="info-card">
+      <h3>Vault &amp; System Health <button type="button" class="help-btn" data-tip="Shows your saved RAM footprint, vault capacity, and downloadable Zero-Store care scripts.">?</button></h3>
+      <div id="vpsSysBox" class="stat-grid"></div>
+      <strong style="font-size:0.82rem;color:var(--muted);margin-top:4px">Tools &amp; Services</strong>
+      <div id="pm2List" class="pm2-list"></div>
+    </div>
+  </section>
+  <section id="viewGuide" class="guide-wrap hidden">
+    <div class="bm-bar">
+      <div>
+        <strong style="color:var(--accent);font-size:0.98rem">1-Click Bookmarks Bar Button (Setup in 5 Seconds)</strong>
+        <p class="muted">Hold your mouse on the green <strong>+ Stash This</strong> button and drag it up onto your Chrome Bookmarks Bar.</p>
+      </div>
+      <a id="bookmarkletLink" class="bm-pill" href="#">+ Stash This</a>
+    </div>
+    <div id="guideDiagrams" class="diag-grid"></div>
+  </section>
+  <div id="playerModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header"><strong id="modalTitle">Video Player</strong><button id="btnCloseModal" type="button" class="btn btn-ghost">[Close X]</button></div>
+      <div id="playerFrameWrap" class="player-wrap"></div>
+    </div>
+  </div>
+  <div id="helpBubble" class="help-bubble hidden"></div>
+  <div id="toastMsg" class="toast hidden"></div>
+  <script src="guide.js?v=7" defer></script>
+  <script src="app.js?v=7" defer></script>
+</body>
+</html>

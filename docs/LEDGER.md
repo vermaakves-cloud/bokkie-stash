@@ -1,0 +1,226 @@
+- : [CADDY] - Restored complete multi-domain Caddyfile with validated ingress blocks.
+- : [ENGINE] - Verified Caddy SSL configuration and PM2 multi-tenant processes.
+- 2026-11-02: [ENGINE] - Purged duplicate errored PM2 sandbox process and verified core ingress.
+- : [ENGINE] - Fixed apex domain null crash on line 358 and explicitly registered boeke.virmy.co.za in platform.db
+- : [ENGINE] - Updated Caddyfile to map all utility domains to port 3010, explicitly routed sandbox to 3011, and executed respawn for dead 3012 processes.
+- : [ENGINE] - Added 'tls internal' to wildcard blocks to fix DNS-01 ACME challenge failures and restore Cloudflare Full SSL handshakes.
+- 2026-11-02: [ENGINE] - Added tls internal to sandbox block to resolve 526 SSL errors under Cloudflare Full proxy mode.
+- : [ENGINE] - Restored /api/master/ and /api/admin/ backend logic.
+- : [ENGINE] - Integrated Cloudflare API DNS auto-provisioning module using multi-zone token.
+- 2026-11-03: [ENGINE] - Wired createCloudflareDnsRecord into tenant provisioning endpoint for automated DNS creation.
+- : [ENGINE] - Wired createCloudflareDnsRecord into Master API tenant creation route.
+- : [INFRASTRUCTURE] - Removed 'tls internal' from Caddyfile and consolidated domains to fix Cloudflare Error 526.
+- : [INFRASTRUCTURE] - Removed 'tls internal' from Caddyfile and consolidated domains to fix Cloudflare Error 526.
+- : [INFRASTRUCTURE] - Migrated non-engine sites from nested var folder and isolated them in Caddyfile.
+- : [INFRASTRUCTURE] - Globally synced all app directories from nested /var/www/var/www/ to /var/www/ using rsync. Retained nested directory as a backup. Reloaded Caddy.
+- : [INFRASTRUCTURE] - Restored 'tls internal' to break Let's Encrypt deadlock behind Cloudflare proxy.
+- : [INFRASTRUCTURE] - Restored blad.co.za and virjou.co.za to mymark-engine block (:3010). Routed downloaders temporarily to hybrid-platform frontend.
+- : [INFRASTRUCTURE] - Started hybrid-platform Next.js app in PM2. Updated Caddyfile to reverse_proxy fastdownloader and bulkdownloader to port 3000.
+- : [INFRASTRUCTURE] - Started bokkie-scanner and bokkie-diagnostics micro-apps via PM2.
+- : [Cleanup] - Archived and removed legacy PHP test app /var/www/2flip_online and db_2flip.
+- : [Cleanup] - Archived and removed legacy PHP test app /var/www/2flip_online and db_2flip.
+- : [Cleanup] - Archived and purged ai_fliip_online and webview_api. Removed crashed PM2 process.
+- : [Cleanup] - Archived and purged unrouted scaffold /var/www/anchorstone_os.
+- : [Security Audit] - Archived and purged exposed Adminer script (/var/www/start_fliip).
+- 2026-11-03 23:19: [Security Audit] - Archived and purged exposed Adminer tool directory (/var/www/start_fliip).
+- 2026-11-04 14:46: [Upgrade] - Deployed AppSynth v3.0 to ideas.fliip.online with MD/JSON/PDF report downloads, 4-pillar scoring, GTM Marketing Playbook, and automatic 503 model fallback.
+- 2026-11-04 14:52: [Upgrade] - Deployed AppSynth v3.1 with restored TokenBar, Custom Founder Direction steer bar, Starred Ledger pinning, and market check links.
+- 2026-11-04 15:25: [Deployment] - Deployed AppSynth v4.0 Phase 1 to ideas.fliip.online featuring Preset Topic Sets, AI Topic Set Generator, Inline Slot Editing, and Brutally Honest Desk Verdicts.
+- 2026-11-04 15:38: [Upgrade] - Deployed AppSynth v4.1 with Configurable Scoring Parameters, Minimum Viability Threshold sliders, and Market Demand/Monetization weights.
+- 2026-11-04 15:57: [Upgrade] - Deployed AppSynth v4.2 to ideas.fliip.online with advanced scoring sliders and complete help description balloons.
+- 2026-11-04 20:33: [Bokkie Pulse Sandbox] - Initialized pulse.db WAL schema (9 core tables), modular /cards/ hot-reload registry, and native node:http kernel on Port 3016.
+- 2026-11-04 20:33: [Bokkie Pulse Sandbox] - Initialized pulse.db WAL schema (9 core tables), modular /cards/ hot-reload registry, and native node:http kernel on Port 3016.
+- 2026-11-04 20:40: [Bokkie Pulse Sandbox - views/studio.js] - Deployed 3-panel PC Management Studio UI with Top Command Ribbon, collapsible drawers, docked debugging terminal, dynamic CSS theme engine, and schedule/voice CRUD routes.
+- 2026-11-04 20:44: [Bokkie Pulse Sandbox - Mobile PWA] - Deployed views/player.js (3-panel swipe PWA, Wake Lock, Push-to-Talk FAB, Supermarket Price Logger, Camera JSON sidecar intake, triple-tap debug console), public/manifest.json, and public/sw.js.
+- 2026-11-04 20:46: [Bokkie Pulse Sandbox - HTTP HEAD & Mobile PWA] - Deployed views/player.js, public/manifest.json, public/sw.js, and updated server.js to support both GET and HEAD requests across all routes.
+- 2026-11-04 20:47: [Bokkie Pulse Caddy Integration] - Configured reverse proxy domains pulse-sandbox.bokkie.online (:3016) and pulse.bokkie.online (:3015) in /etc/caddy/Caddyfile.
+- 2026-11-04 21:03: [Bokkie Pulse Sandbox] - Added /api/media/promote route and wired Two-Tier Media Manager Vault promotion UI in views/studio.js.
+- 2026-11-05 01:55: [Bokkie Pulse Sandbox] - Installed Git via DNF, initialized local repository, configured strict .gitignore, and created baseline commit.
+- 2026-11-05 02:17: [Bokkie Pulse V2 Decomposition - Step 1] - Upgraded db.js with Supermarket DB, Calendar Events, Card Media Stacks, and Sync Counter; created views/components/layout.js with 2-row ribbon and lined-paper CSS.
+- 2026-11-05 02:18: [Bokkie Pulse V2 Decomposition - Step 2] - Created isolated page modules in views/pages/ (home_schedule.js, cards_workshop.js, audio_studio.js, calendar_supermarket.js).
+- 2026-11-05 02:27: [Bokkie Pulse V2 Modular Architecture] - Deployed modular routes/api.js, updated server.js with fs.watch hot-reloading and SSE sync, and wired all L-M-R page sets.
+- 2026-11-05 02:33: [Bokkie Pulse V2] - Fixed 404 route error on /player by mounting mobile PWA view and manifest in server.js.
+- 2026-11-05 02:52: [Bokkie Pulse Studio UI] - Inspected views/studio.js (39KB) and prepared 2-line top ribbon enhancement.
+- 2026-11-05 16:48: [Bokkie Pulse Studio UI] - Recovered from syntax error and applied 2-line ribbon update.
+- 2026-11-05 16:54: [Bokkie Pulse Studio UI] - Expanded Audio Studio pane with PC file uploader and editable metadata fields.
+- 2026-11-05 16:56: [Bokkie Pulse Studio UI] - Fixed navigation decoupling; restored data-tab attributes and all 7 V1 workspaces to the 2-line ribbon.
+- 2026-11-05 17:06: [Bokkie Pulse Studio UI] - Expanded Audio Studio tab into contextual L-M-R Grid with local file intake, multi-track timeline overlay, and editable vault metadata.
+- 2026-11-05 17:32: [Bokkie Pulse Studio UI] - Full file replacement implementing 3-column Audio Studio.
+- 2026-11-05 17:37: [Bokkie Pulse Studio UI] - Replaced global drawers with Contextual L-M-R Architecture. Eliminated 5-column overlap.
+- 2026-11-05 21:31: [Bokkie Pulse V2 Phase 1] - Upgraded db.js and server.js with full Audio Metadata columns, Supermarket Intelligence tables, Reusable Studio Lists, Calendar media attachments, static byte-range streaming (/uploads/*), and SSE live hot-reloading (/api/stream).
+- 2026-11-05 21:37: [Bokkie Pulse Studio UI V2] - Full-file replacement of views/studio.js implementing 8 contextual L-M-R Page Sets, Stationery Lined Paper Pad timeline, Index Card Workshop, Multi-Track Audio/Video Studio with real MediaRecorder & WAV export, Reusable List Editor, Calendar Matrix, and Supermarket DB.
+- 2026-11-05 21:40: [Bokkie Pulse Mobile PWA V2] - Full-file replacement of views/player.js with Stationery Paper Pad timeline, real MediaRecorder voice capture synced to Audio Studio, Supermarket Barcode/Photo Scanner with editable store names, and SSE live sync.
+- 2026-11-05 22:00: [Docs & Spec System] - Initialized /docs/SPECS_INFRASTRUCTURE.md and /docs/SPECS_BOKKIE_PULSE.md on VPS.
+- 2026-11-05 22:07: [Page Set 8 Spec Vault] - Wired /docs/SPECS_BOKKIE_PULSE.md, /docs/SPECS_INFRASTRUCTURE.md, /docs/LEDGER.md, and /docs/FAULTS.md into 3-column Living Ledger & Spec Editor with one-click Master Context Bundle generator (/api/docs/context-bundle).
+- 2026-11-05 22:16: [Page Set 8 Spec Vault] - Wired /docs/SPECS_BOKKIE_PULSE.md, /docs/SPECS_INFRASTRUCTURE.md, /docs/LEDGER.md, and /docs/FAULTS.md into 3-column Living Ledger & Spec Editor with one-click Master Context Bundle generator (/api/docs/context-bundle).
+- 2026-11-05 23:00: [Page Set 8 Unabridged Spec Vault & Note Tree] - Seeded full unabridged specs without nested backticks, added live file mtime timestamps & KB size next to filenames, and deployed SQLite-backed Whiteboard & Future Ideas Note Tree.
+- 2026-11-05 23:05:38: [Whiteboard Note Tree] - Saved note "test note" [TODO] in Whiteboard UI.
+- 2026-11-05 23:10:59: [Master Spec Vault] - Replaced /docs/SPECS_INFRASTRUCTURE.md, /docs/SPECS_BOKKIE_PULSE.md, and /docs/FUTURE_IDEAS_ROADMAP.md with 100% unabridged specifications, ASCII wireframes, 21+ card types, and 50 future ideas.
+- 2026-11-05 23:32:30: [Audio/Video Studio V2.3] - Added per-track [Remove], [Mute], [Solo], Offset & Trim controls, Master Audio/Video Preview Monitor, inline [Play] & [+Trk] buttons on all file rows, and real decoded canvas waveforms.
+- 2026-11-05 23:52:55: [Bokkie Pulse Studio V2.4] - Implemented full 3-column Page Set 4 (Reusable List Editor with Group filtering, search, inline Edit/Clone, and TTS preview) and added real-time Playhead Marker lines + timer indicators across Master Monitor and Multi-Track Workbench.
+- 2026-11-06 00:18:35: [Bokkie Pulse Studio V2.4] - Implemented full 3-column Page Set 4 (Reusable List Editor with Group filtering, search, inline Edit/Clone, and TTS preview) and added real-time Playhead Marker lines + timer indicators across Master Monitor and Multi-Track Workbench.
+- 2026-11-06 01:11: [NLE Module File 1/3] - Created standalone public/nle_studio.js with drag trim handles, split-at-playhead, V1/A1/A2 tracks, camera mic mute, auto-ducking, and FFmpeg MP4 hook.
+- 2026-11-06 01:14: [Server V2.5 File 2/3] - Added static /nle_studio.js route and FFmpeg multi-track video/audio MP4 render pipeline (/api/media/render-mp4).
+- 2026-11-06 01:17: [Studio Core File 3A] - Deployed modular public/studio_core.js wired into public/nle_studio.js.
+- 2026-11-06 01:23: [Studio View Shell File 3B] - Replaced views/studio.js with compact modular HTML shell loading /nle_studio.js and /studio_core.js.
+- 2026-11-06 01:31: [Studio View Shell File 3B] - Replaced views/studio.js with compact modular HTML shell loading /nle_studio.js and /studio_core.js.
+- 2026-11-06 01:36: [Dynamic Docs Scanner] - Replaced static ALLOWED_DOCS in server.js with dynamic fs.readdirSync('/docs') auto-discovery and fs.watch on /docs/ so SPECS_AUDIO_VIDEO_STUDIO.md and any new .md files appear automatically.
+- 2026-11-06 01:42: [Spec Vault] - Created /docs/SPECS_AUDIO_VIDEO_STUDIO.md on disk.
+- 2026-11-06 01:53: [Modular Page Set 1/8] - Created views/pagesets/ps1_timeline.js.
+- 2026-11-06 01:59: [Modular Page Set 2/8] - Created views/pagesets/ps2_cards.js (Index Card Workshop & Stack Builder).
+- 2026-11-06 02:01: [Modular Page Set 3/8] - Created views/pagesets/ps3_audio.js (Multi-Track Audio/Video NLE Studio).
+- 2026-11-06 02:02: [Modular Page Set 4/8] - Created views/pagesets/ps4_lists.js (3-Column Reusable Pick-List Editor).
+- 2026-11-06 02:04: [Modular Page Set 5/8] - Created views/pagesets/ps5_calendar.js (Calendar Matrix & Event Configurator).
+- 2026-11-06 02:04: [Modular Page Set 6/8] - Created views/pagesets/ps6_market.js (Supermarket Barcode & Normalized Unit Price DB).
+- 2026-11-06 02:05: [Modular Page Set 7/8] - Created views/pagesets/ps7_settings.js (Voice Commands & Theme Studio).
+- 2026-11-06 02:06: [Modular Page Set 7/8] - Created views/pagesets/ps7_settings.js (Voice Commands & Theme Studio).
+- 2026-11-06 02:07: [Modular Studio Architecture Complete] - Created views/pagesets/ps8_docs.js and linked all 8 independent Page Set modules (ps1..ps8) into views/studio.js.
+- 2026-11-06 02:08: [Modular Mobile PWA 1/4] - Created views/mobile/m1_pad.js (Mobile Stationery Paper Pad & Hardware Capture).
+- 2026-11-06 02:09: [Modular Mobile PWA 2/4] - Created views/mobile/m2_market.js (In-Store Supermarket GPS, Barcode Scanner & Unit Price Logger).
+- 2026-11-06 02:10: [Modular Mobile PWA 3/4] - Created views/mobile/m3_cal.js (Mobile Calendar Events, Wake Lock & Node Telemetry).
+- 2026-11-06 02:11: [Modular Mobile PWA 4A] - Created standalone public/player_core.js runtime for Samsung A25.
+- 2026-11-06 02:12: [Modular Mobile PWA 4B-1] - Replaced views/player.js with modular shell requiring m1_pad.js, m2_market.js, and m3_cal.js.
+- 2026-11-06 02:14: [Modular Mobile PWA 4B-2] - Full-file replacement of server.js serving /player_core.js, /studio_core.js, and /nle_studio.js.
+- 2026-11-06 02:16: [Specs Infrastructure Update] - Updated /docs/SPECS_INFRASTRUCTURE.md with the complete V2.5 Modular File Structure Map (ps1..ps8, m1..m3, studio_core.js, nle_studio.js, player_core.js, and dynamic /docs/ scanner).
+- 2026-11-06 02:20: [Page Set 8 Upgrade & Spec] - Created /docs/SPECS_DOCS_VAULT.md and upgraded views/pagesets/ps8_docs.js with header save button, search filter, folder filter, live editor telemetry, and note-to-spec promotion.
+- 2026-11-06 02:22: [Page Set 8 Runtime Restored] - Full-file replacement of public/studio_core.js restoring Page Set 8 document/note saving, Ctrl+S shortcut, dirty-state badge, search & folder filters, live line/word/KB stats, and note-to-spec promotion.
+- 2026-11-06 02:43: [Spec Vault] - Created /docs/SPECS_LIST_EDITOR.md for Page Set 4 Stationery Writing Pad, Bilingual af-ZA/en-ZA TTS, and Gemini AI Co-Writer.
+- 2026-11-06 02:45: [Page Set 4 Stationery Pad UI] - Replaced views/pagesets/ps4_lists.js with full-center blue-lined stationery writing pad, text-only [AUTO/AF/EN] language selector, Teleprompter bridge, and Gemini AI Co-Writer panel.
+- 2026-11-06 02:50: [Page Set 4 Backend AI & Batch API] - Added POST /api/lists/ai-generate (with 3-attempt exponential backoff) and POST /api/lists/batch to server.js.
+- 2026-11-06 02:55: [Page Set 4 Runtime & Auto-AF/EN TTS] - Full-file replacement of public/studio_core.js adding Bilingual af-ZA/en-ZA TTS heuristic router, Stationery Pad controller, Teleprompter NLE bridge, Card promoter, and Gemini AI Co-Writer.
+- 2026-11-06 02:57: [Mobile PWA Bilingual TTS] - Full-file replacement of public/player_core.js adding auto-adapting Afrikaans (af-ZA) and English (en-ZA) TTS heuristic router and inline slot speak button.
+- 2026-11-06 03:18: [Page Set 7 AI Vault UI] - Upgraded views/pagesets/ps7_settings.js with Gemini API Key Vault manager and live connection tester.
+- 2026-11-06 03:20: [Page Set 7 AI Vault UI] - Repaired and verified views/pagesets/ps7_settings.js.
+- 2026-11-06 03:37: [Central Vault] - Updated GEMINI_API_KEY and GEMINI_API_KEYS pool in /var/www/mymark-engine/.env and /etc/mymark/keys.env.
+- 2026-11-06 03:40: [Multi-Key Gemini Vault & Rotation] - Upgraded server.js to load GEMINI_API_KEYS pool from /var/www/mymark-engine/.env and /etc/mymark/keys.env with dual auth (AQ./AIza) and 2048 maxOutputTokens.
+- 2026-11-06 03:48: [AI Co-Writer & SSE Heartbeat Fix] - Added 15s SSE heartbeat to prevent ERR_QUIC_PROTOCOL_ERROR and added 12-paragraph chapter fallback + diagnostic reporting on /api/lists/ai-generate.
+- 2026-11-06 04:09: [Central Vault] - Interactively stored 3-key pool in /var/www/mymark-engine/.env and /etc/mymark/keys.env.
+- 2026-11-06 04:10: [Central Vault] - Interactively stored 3-key pool in /var/www/mymark-engine/.env and /etc/mymark/keys.env.
+- 2026-11-06 04:10: [Central Vault] - Interactively stored 3-key pool in /var/www/mymark-engine/.env and /etc/mymark/keys.env.
+- 2026-11-06 04:12: [Central Vault] - Updated key pool via direct deployment script.
+- 2026-11-06 04:15: [Central Vault] - Updated key pool via direct deployment script.
+- 2026-11-06 09:02: [Gemini 3.0 Flash Upgrade] - Full-file replacement of server.js and views/pagesets/ps7_settings.js upgrading default model from retired gemini-2.5-flash to gemini-3.0-flash.
+- 2026-11-06 09:13: [Gemini ListModels Auto-Discovery] - Full-file replacement of server.js adding automatic ModelService.ListModels discovery for AIza keys.
+- 2026-11-06 09:20: [Universal Gemini Vault] - Deployed /var/www/shared/gemini_client.js and /usr/local/bin/gemini-vault CLI across VPS.
+- 2026-11-06 10:21: [Page Set 4 Playback Dock UI] - Full-file replacement of views/pagesets/ps4_lists.js adding Clear Prompt, Clear Pad with Undo, 60-Min Session Builder bar, and Live Voice Graph & Karaoke Dock.
+- 2026-11-06 10:25: [Server TTS Audio Stream Proxy] - Full-file replacement of server.js adding GET /api/tts/stream for real-time Web Audio AnalyserNode frequency graphs in Afrikaans and English.
+- 2026-11-06 10:29: [Page Set 4 Live Voice Graph, Karaoke & Cues] - Full-file replacement of public/studio_core.js adding WebAudio AnalyserNode graph, server TTS stream playback, executable cues ([Pause 2s], [Soft Bell Cue]), 75 BPM drone pad, and Clear Prompt / Clear Pad with Undo.
+- 2026-11-06 10:48: [Page Set 4 Live Voice Graph, Karaoke & Cues] - Full-file replacement of public/studio_core.js adding WebAudio AnalyserNode graph, server TTS stream playback, executable cues ([Pause 2s], [Soft Bell Cue]), 75 BPM drone pad, and Clear Prompt / Clear Pad with Undo.
+- 2026-11-06 10:48: [Spec Vault] - Full-file update of /docs/SPECS_LIST_EDITOR.md documenting Page Set 4 Stationery Pad, Live Voice Graph & Karaoke Dock, /api/tts/stream proxy, executable cues, 75 BPM drone pad, and Universal Gemini Vault integration.
+- 2026-11-06 11:25: [GitHub Sync] - Synchronized /var/www/bokkie-pulse-sandbox and /docs/*.md with git@github.com:vermaakves-cloud/bokkie-pulse.git.
+- 2026-11-06 11:38: [Module] - Fix summary.
+- 2026-11-06 12:06: [Page Set 1 & Mobile Pad UI] - Full-file replacement of ps1_timeline.js, m1_pad.js, and player.js adding Flashing Active Dots, Red NOW needle, Click-Between-Lines Quick Insert, 4 WebAudio Alarm Tones, and Dual-Target Preview & Cellphone Monitor Dock.
+- 2026-11-06 12:10: [Page Set 1 Remote Cellphone Cast & Alarm Metadata] - Full-file replacement of server.js adding POST /api/nodes/command, schedule alarm tone persistence, and live node_ping SSE telemetry.
+- 2026-11-06 12:53: [Modular JS] - Deployed public/pagesets/ps1_audio.js (125 lines).
+- 2026-11-06 12:57: [Modular JS] - Deployed public/pagesets/ps1_timeline.js (150 lines).
+- 2026-11-06 12:59: [Modular JS] - Deployed public/pagesets/ps1_actions.js (145 lines).
+- 2026-11-06 13:04: [Studio View Modularization] - Extracted public/studio.css and trimmed views/studio.js to 128 lines, wiring /pagesets/ps1_audio.js, ps1_timeline.js, and ps1_actions.js.
+- 2026-11-06 13:11: [Modular Static Router & PS1 Boot] - Created public/pagesets/ps1_boot.js (65 lines) and routes/static_router.js (42 lines).
+- 2026-11-06 13:12: [Studio View] - Wired /pagesets/ps1_boot.js into views/studio.js (129 lines).
+- : [Backend Modularization] - Extracted routes/ai_tts_helper.js (145 lines).
+- : [Backend Modularization] - Deployed routes/docs_state_helper.js (132 lines).
+- : [Backend Modularization] - Deployed routes/api_schedules_nodes.js (142 lines).
+- : [Backend Modularization] - Deployed routes/api_lists_market_cal.js (142 lines).
+- : [Backend Modularization] - Deployed routes/api_media_docs.js (148 lines).
+- : [Backend Modularization] - Deployed routes/api_media_docs.js (148 lines).
+- : [Server Core Router] - Modularized server.js to 148 lines using routes/*.js and static_router.js.
+- : [Page Set 1 3-Window Layout] - Moved Live Playback, Preview Screen, Waveform & Cellphone Telemetry exclusively into Right Panel; restored full-height Center Stationery Pad.
+- : [views/studio.js] - Reordered script load sequence so modular ps1_*.js controllers override legacy studio_core.js on Page Set 1.
+- [2026-11-06] Deployed xrp-bokkie tracker on port 3017 for xrp.bokkie.online
+- : [Page Set 1 Actions] - Replaced legacy listeners via cleanBind so Left Inspector, Center Full-Height Pad, and Right Playback Deck stay synchronized.
+- : [views/pagesets/ps1_timeline.js] - Added Visual Card/Script Palette in Left Panel and isolated DOM IDs (#ps1-paper-lines-list) from legacy studio_core.js.
+- : [public/pagesets/ps1_timeline.js] - Added Visual Card/Script Palette renderer with [Replace] and [+ Add] actions and DOM-isolated #ps1-paper-lines-list.
+- : [Everyday Schedule Builder] - Deployed public/pagesets/ps1_actions.js with 1-click Palette Replace/Add, Duplicate Cleaner, and DOM-isolated bindings.
+- : [views/pagesets/ps1_timeline.js] - Added complete hidden legacy trap IDs (#pad-events-banner, #pad-date-picker, #insp-*) so studio_core.js never throws a null TypeError before rendering Page Set 4.
+- : [Page Set 4 Modular Explorer] - Deployed public/pagesets/ps4_explorer.js (148 lines) for Master Pick-List Groups, Saved Items Explorer, and Stationery Pad actions.
+- : [Page Set 4 Modular Voice & AI] - Deployed public/pagesets/ps4_voice_ai.js (144 lines) for Voice Graph Dock, Gemini AI Co-Writer, and Batch Paragraph Splitter.
+- : [Page Set 4 Modular Voice & AI] - Deployed public/pagesets/ps4_voice_ai.js (144 lines) for Voice Graph Dock, Gemini AI Co-Writer, and Batch Paragraph Splitter.
+- : [Page Set 4 Modular Activation] - Wired /pagesets/ps4_explorer.js and /pagesets/ps4_voice_ai.js into views/studio.js and public/pagesets/ps1_boot.js.
+- : [Active Filler Replacement] - Added POST /api/cards/set-filler and [🎵 Filler] palette button + Filler Target Mode so Top Active Filler Bar swaps independently of dated schedule rows.
+- : [Page Set 1 Option B View] - Deployed 132-line views/pagesets/ps1_timeline.js with Left Universal Explorer, Center Uncluttered Timeline, and Right Visual Card + Bottom Card Scheduler.
+- : [Page Set 1 Option B Complete] - Deployed 146-line public/pagesets/ps1_timeline.js and 149-line public/pagesets/ps1_actions.js with Left Universal Explorer, Center Uncluttered Timeline, and Right Visual Card + Bottom Card Scheduler.
+- : [Page Set 1 Broadcast View] - Deployed 142-line views/pagesets/ps1_timeline.js with uniform 34x34px icon buttons + micro-captions, 7-day pill bar, and Audition vs On-Air separation.
+- : [Page Set 1 Timeline Engine] - Deployed 148-line public/pagesets/ps1_timeline.js with Active Date Picker, Day-of-Week filter, single-line ellipsis rows, and HTML5 Drag-and-Drop.
+- : [Page Set 1 Broadcast Actions] - Deployed 148-line public/pagesets/ps1_actions.js with Auto-Ducking Filler Loop, Audition (🎧 REVIEW) vs On-Air (▶ LIVE), [M T W T F S S] Day Selector, and Drag-and-Drop.
+- : [Mobile 3-Pane Swipe Views] - Deployed views/player.js (118 lines) and views/mobile/m1_pad.js (144 lines) with Left Rec/Library, Center Schedule Pad, and Right On-Air Play Viewer.
+- : [Mobile 3-Pane Swipe Engine] - Deployed 149-line public/pagesets/mob_schedule.js with horizontal touch swipe, remote_command SSE cast receiver, 60s local schedule ticker, and auto-ducking Filler loop.
+- : [Sticky Afrikaans TTS Language Detector] - Expanded Afrikaans lexicon to 95+ markers + diacritic/prefix detection and added masterLang inheritance across sentence chunks in ps1_audio.js, ps1_actions.js, mob_schedule.js, and ps4_voice_ai.js.
+- : [Mobile PWA Manifest & Auto-Update SW] - Deployed routes/static_router.js (SVG app icons + no-store headers), public/manifest.json (/player?pwa=1 portrait standalone), and network-first public/sw.js (v2.5.9).
+- : [Mobile PWA Manifest & Auto-Update SW] - Deployed routes/static_router.js (SVG app icons + no-store headers), public/manifest.json (/player?pwa=1 portrait standalone), and network-first public/sw.js (v2.5.9).
+- : [Mobile PWA Standalone Installer & Viewport Guard] - Deployed 148-line views/player.js with Desktop-Site detector, auto-zoom compensation, 📲 APP install button, 🔄 SYNC cache purge button, and 45s Service Worker auto-updater.
+- : [Zero-Dependency PNG WebAPK Icons & Manifest Reset] - Deployed routes/static_router.js with native zlib 192x192/512x512 PNG generator and reset manifest id to /player-a25-v2.
+- : [Zero-Dependency PNG WebAPK Icons & Manifest Reset] - Deployed routes/static_router.js with native zlib 192x192/512x512 PNG generator and reset manifest id to /player-a25-v2.
+- : [Option 1B Step 1: Dedicated On-Air Deck View] - Created views/pagesets/ps0_onair.js (96 lines) and updated views/studio.js (138 lines) with 📡 0. On-Air Player Deck tab and top mini status bar.
+- : [Option 1B Step 3A: PC Teleprompter & Filter Actions] - Deployed 152-line public/pagesets/ps1_actions.js with multi-sentence active highlight teleprompter, inline review banner, and status filter wiring.
+- : [Option 1B Step 3B: Mobile Dedicated Player & Slide-Up Slot Modal] - Deployed views/mobile/m1_pad.js (146 lines) and public/pagesets/mob_schedule.js (156 lines) with explicit status pills, status filter bar, dedicated Subpage 3 teleprompter, and slide-up editor modal.
+- : [Mobile Fixed Transport Dock & Non-Scrolling Viewport Lock] - Updated views/player.js (146 lines) and views/mobile/m1_pad.js (148 lines) to pin Play/Pause/Stop/Filler/528Hz directly above the bottom tab bar and lock top buttons.
+- : [True Oscilloscope Waveform & Isolated Mobile Prompter Scroll] - Deployed public/pagesets/ps1_audio.js (142 lines) with continuous time-domain waveform trace and public/pagesets/mob_schedule.js (156 lines) replacing scrollIntoView with internal box.scrollTo.
+- : [PC Teleprompter Isolated Container Scroll] - Updated public/pagesets/ps1_actions.js (154 lines) to use internal box.scrollTo instead of document-shifting scrollIntoView.
+- : [Phase 1A: Android OS Controller & Broadcast Window Backend] - Deployed views/pagesets/ps7_settings.js (98 lines) and routes/api_schedules_nodes.js (154 lines) with /api/os/config, audio_route metadata, and remote hardware override commands.
+- : [Phase 1B Step 1: OS Controller Boot & Per-Slot Audio Route UI] - Deployed public/pagesets/ps1_boot.js (104 lines) and views/pagesets/ps1_timeline.js (140 lines) with #ps1-audio-route (AUTO/SPEAKER/BT_ONLY) and OS hardware control bindings.
+- : [Phase 1B Step 2: PC Per-Slot Route Badges & Broadcast Window Enforcement] - Deployed public/pagesets/ps1_timeline.js (158 lines) and public/pagesets/ps1_actions.js (158 lines) with [🔊SPK/🎧AUTO/🤫BT] row badges, REMINDERS_ONLY filler mute, and sleep_time auto-stop.
+- : [Phase 1B Step 3: Mobile Keep-Alive Heartbeat, MediaSession & Spotify Mode] - Deployed views/mobile/m1_pad.js (149 lines) and public/pagesets/mob_schedule.js (158 lines) with sub-audible keep-alive, lock-screen MediaSession controls, and 1-tap Spotify/Full toggle.
+- 2026-11-09 17:06: [Phase 2: MSI Linux Desktop App & Local ADB/PipeWire Bridge] - Deployed ~/bokkie-msi-bridge/bridge.js (:3099) on philip-msi with PipeWire audio control, Wi-Fi ADB routing, and borderless Chrome .desktop launcher.
+- 2026-11-09 17:20: [Phase 3: Samsung A25 Wireless ADB Provisioning] - Upgraded ~/bokkie-msi-bridge/bridge.js (154 lines) with live battery/audio telemetry, USB-to-WiFi tcpip 5555 auto-handoff, and Samsung One UI Doze immunity.
+- 2026-11-09 17:21: [Phase 3: Samsung A25 Wireless ADB Provisioning] - Upgraded ~/bokkie-msi-bridge/bridge.js (154 lines) with live battery/audio telemetry, USB-to-WiFi tcpip 5555 auto-handoff, and Samsung One UI Doze immunity.
+- 2026-11-09 17:27: [Phase 3: Samsung A25 Wireless ADB Provisioning] - Upgraded ~/bokkie-msi-bridge/bridge.js (154 lines) with live battery/audio telemetry, USB-to-WiFi tcpip 5555 auto-handoff, and Samsung One UI Doze immunity.
+- 2026-11-09 17:32: [Phase 3: Samsung A25 Wireless ADB Paired @ 192.168.0.3] - Paired MSI bridge to Samsung A25 (192.168.0.3), locked TCP/IP port, and applied Samsung One UI Doze whitelist.
+- 2026-11-09 18:36: [Phase 4: Hardware Speaker-Override vs Bluetooth A2DP Auto-Handoff Verified] - Verified STREAM_MUSIC hardware switching between speaker(2) and bt_a2dp(80) on Samsung A25 (SM_A256E @ 192.168.0.3:5555) plus automated wake/sleep cron.
+- 2026-11-09 20:07: [Live Afrikaans Speaker-Override & HOCO ES62 Handoff Test] - Executed live spoken Afrikaans verification across SPEAKER (speaker(2) @ vol 12) and AUTO Bluetooth re-bind (HOCO ES62 bt_a2dp @ vol 7).
+- 2026-11-09 20:25: [Phase 4: Spotify Auto-Pause/Resume & One UI 8.5 MultiSound Integration] - Upgraded ~/bokkie-msi-bridge/bridge.js (154 lines) to detect active Spotify PlaybackState(3), pause during spoken cards, route via Samsung One UI 8.5 multisound without dropping HOCO ES62, and auto-resume Spotify.
+- 2026-11-09 20:31: [One UI 8.5 MultiSound Speaker Override Verification] - Tested SPEAKER slot routing via multisound_app=com.android.chrome (devicetype=0) with zero Bluetooth drop and automatic restoration to HOCO ES62 + Spotify.
+- 2026-11-09 20:40: [Phase 4 Complete: Zero-Drop Speaker Override via ffplay + HOCO ES62 Spotify Auto-Resume] - Upgraded ~/bokkie-msi-bridge/bridge.js (154 lines) to pause active Spotify on A25, broadcast SPEAKER slots out loud via /usr/bin/ffplay + A25 simultaneously without dropping HOCO ES62 Bluetooth, and auto-resume Spotify.
+- 2026-11-09 20:50: [Production Promotion V2.6 (:3016 -> :3015)] - Checkpointed pulse.db WAL, promoted verified Bokkie Pulse V2.6 build to /var/www/bokkie-pulse (port 3015, https://pulse.bokkie.online), and synced to GitHub (vermaakves-cloud/bokkie-pulse).
+- 2026-11-09 21:00: [V2.6.0 Version Tag & 06:00 SPEAKER Schedule Lock] - Updated routes/docs_state_helper.js to report version 2.6.0 in production (:3015) and locked 06:00 morning slots to SPEAKER route.
+- 2026-11-09 21:06: [Environment Badge Clarity] - Set APP_VERSION to clearly distinguish '2.6.0 (PROD :3015)' vs '2.6.0-SANDBOX (:3016)' in Studio & Player UI headers.
+- 2026-11-09 21:32: [Live Architect InfoBar on pulse.bokkie.online] - Added /docs/INFOBAR.json telemetry bar to top of Studio (/studio) and Mobile PWA (/player) on pulse.bokkie.online (:3015) showing active modified files, build summary, and timestamp.
+- 2026-11-09 22:48:45: [infrastructure | /usr/local/bin/vps-context, /usr/local/bin/vps-record] - Deployed Universal Fleet Context Harvester & INDEX.json for MyMmark HQ
+- 2026-11-09 22:49:05: [infrastructure | /usr/local/bin/vps-context, /usr/local/bin/vps-record] - Deployed Universal Fleet Context Harvester & INDEX.json for MyMmark HQ
+- 2026-11-10 01:07:25: [infrastructure | /usr/local/bin/vps-context, /usr/local/bin/vps-record] - Deployed Universal Fleet Context Harvester & INDEX.json for MyMmark HQ
+- 2026-11-10 01:18:23: [mymark-sandbox | hq_catalog.js, hq_api.js] - Modularized HQ backend (<150L) and added AI Context, APP_RULES, Vault & Git-Sync APIs
+- 2026-11-10 01:27:31: [mymark-sandbox | views/platform_master.js, public/hq_desktop.js, public/hq_modals.js] - Deployed HQ AI Memory Hub, APP_RULES.md Gem-replacement editor, Key Vault & 1-Click Context Copy on Sandbox :3011
+- 2026-11-10 02:17:13: [mymark-sandbox | views/public_home.js, views/index.js, hq_api.js, views/platform_master.js] - Resolved homepage pinnedPagesHtml socket hang & wired /api/master/modals.js on Sandbox :3011
+- 2026-11-10 02:20:03: [mymark-engine | views/public_home.js, hq_catalog.js, hq_api.js, views/platform_master.js, public/hq_desktop.js, public/hq_modals.js] - Restored mymark.co.za HTTP 200 & promoted HQ AI Memory Hub, APP_RULES editor & Key Vault to Production :3010
+- 2026-11-10 02:47:37: [hybrid-platform | /usr/local/bin/yt-dlp, /etc/caddy/Caddyfile] - Restored yt-dlp binary and full Caddy downloader_proxy ingress
+- 2026-11-10 10:11:45: [hybrid-platform | /usr/local/bin/yt-dlp, /etc/caddy/Caddyfile] - Restored yt-dlp 2026.10.26 and full Caddy downloader_proxy ingress
+- 2026-11-10 10:25:29: [hybrid-platform | shared/lib/db.js, engine/server.js, ecosystem.config.cjs] - Fixed engine TDZ crash, split-brain SQLite DB, GCP TTS hang, unified deliveries, and bound :3000/:8080 to 127.0.0.1
+- 2026-11-10 10:35:44: [hybrid-platform | shared/lib/db.js, engine/server.js, ecosystem.config.cjs] - Fixed engine TDZ crash, SQLite busy_timeout, GCP TTS hang, unified deliveries, and bound :3000/:8080 to 127.0.0.1
+- 2026-11-10 10:39:30: [hybrid-platform | frontend/.env.production, frontend/lib/db.ts, frontend/next.config.mjs, docs/INFOBAR.json] - Fixed frontend env typo, 413 body limit, SQLite WAL guard, rebuilt Next.js, and registered INFOBAR
+- 2026-11-10 10:52:44: [mymark-engine | scripts/vps_snap.js] - Added standalone CLI headless Chromium screenshot generator (vps-snap) for automated Desktop and Mobile portfolio captures
+- 2026-11-10 10:53:25: [bokkie-pulse | server.js, routes/scheduler_cron.js, routes/ai_tts_helper.js] - Activated autonomous 5s VPS schedule cron, Afrikaans/English directive parser & multi-chunk TTS streamer
+- 2026-11-10 10:54:46: [mymark-engine | views/case_study_module.js,views/page_modules.js,views/admin.js,public/admin_full.js] - Deployed CASE_STUDY device-frame Page Module and captured Desktop+Mobile screenshots across 8 live production apps
+- 2026-11-10 10:55:58: [bokkie-pulse | public/pagesets/ps1_audio.js, public/pagesets/ps1_sequencer.js] - Added WebAudio Soft Low Bell, RAS Anchor, 58Hz Brown-Noise fadeout, HOCO ES62 keepalive & Directive Sequencer
+- 2026-11-10 10:57:26: [mymark-engine | views/case_study_module.js,views/page_modules.js,views/admin.js,public/admin_full.js] - Deployed CASE_STUDY device-frame Page Module and captured Desktop+Mobile screenshots across 8 live production apps
+- 2026-11-10 11:05:00: [mymark-engine | views/public.js,views/admin.js,scripts/seed_philip_portfolio.js] - Provisioned philipvermaak.blad.co.za (SAAS_PORTFOLIO) with 9 live systems, Case Studies, Services, Pricing, Smart Form, FAQ, and Journal articles
+- 2026-11-10 11:59:49: [mymark-engine | views/portfolio_modules.js,views/page_modules.js,views/admin.js,public/admin_full.js] - Added SKILLS_MATRIX and PROCESS_TIMELINE page modules, generated custom PV Architect logo and blueprint hero banner, and seeded philipvermaak.blad.co.za
+- 2026-11-10 12:07:30: [bokkie-pulse-sandbox | ps1_sequencer.js, ps1_actions.js, ps1_bindings.js, views/studio.js, views/player.js] - Modularized ps1_actions (<160L) & wired Directive Sequencer into Sandbox Studio & Player (:3016)
+- 2026-11-10 12:09:55: [bokkie-pulse-sandbox | ps1_sequencer.js, ps1_actions.js, ps1_bindings.js, views/studio.js, views/player.js] - Modularized ps1_actions (<160L) & wired Directive Sequencer into Sandbox Studio & Player (:3016)
+- 2026-11-10 12:40:15: [mymark-engine | views/public.js] - Fixed /item/<slug> ReferenceError on portfolio cards, added public Launch Live System CTAs, added Featured Articles to top header nav, and expanded AI/Chatbot/SaaS services
+- 2026-11-10 12:40:39: [bokkie-stash | db.js,server.js] - Patched multi-line sqlite3 -json parser and booted Bokkie Stash API on :3026
+- 2026-11-10 12:43:38: [bokkie-stash | public/index.html,public/style.css,/etc/caddy/Caddyfile] - Deployed Bokkie Stash HTML/CSS shell and wired stash.bokkie.online Caddy proxy
+- 2026-11-10 12:44:27: [bokkie-pulse-sandbox | mob_schedule.js, mob_boot.js, ps1_actions.js, api_media_docs.js, sw.js] - Wired A25 Mobile Sequencer, Speech Echo Guard, Offline PWA v2.6.3 & <512B Media Capture Guard on Sandbox :3016
+- 2026-11-10 12:44:52: [mymark-engine | views/public.js] - Fixed /item/<slug> ReferenceError on portfolio cards, added public Launch Live System CTAs, added Featured Articles to top header nav, and expanded AI/Chatbot/SaaS services
+- 2026-11-10 12:46:44: [mymark-engine | views/public.js] - Fixed /item/<slug> ReferenceError on portfolio cards, added public Launch Live System CTAs, added Featured Articles to top header nav, and expanded AI/Chatbot/SaaS services
+- 2026-11-10 12:47:28: [bokkie-stash | public/app.js,/etc/caddy/Caddyfile] - Completed Bokkie Stash drag-and-drop UI controller and verified HTTPS ingress
+- 2026-11-10 13:18:37: [bokkie-stash | db.js,server.js] - Fixed save-without-subsection SQL bug and added /api/system + /quick 1-click saver
+- 2026-11-10 13:21:48: [bokkie-stash | public/index.html,public/app.js] - Added 3-tab UI with balloon help, 1-click clipboard/bookmarklet savers, and System & Memory dashboard
+- 2026-11-10 13:27:04: [bokkie-stash | public/index.html,public/app.js] - Cache-busted /app.js?v=3 and bound top navigation buttons synchronously
+- 2026-11-10 13:29:33: [bokkie-stash | public/index.html,public/app.js] - Enforced <160 line cap across all UI modules and completed v4 cache-busted rollout
+- 2026-11-10 16:22:47: [bokkie-stash | public/index.html,public/guide.js] - Embedded interactive SVG visual diagrams inside Tab 3 Easy Visual Guide
+- 2026-11-10 16:27:26: [bokkie-stash | public/index.html,public/guide.js] - Embedded interactive SVG visual diagrams inside Tab 3 Easy Visual Guide
+- 2026-11-10 16:34:52: [bokkie-stash | vaults.js,distro.js] - Added multi-tenant per-vault SQLite registry and Zero-Store instant distribution packager
+- 2026-11-10 16:38:41: [bokkie-stash | db.js,server.js] - Activated multi-tenant per-vault SQLite routing and Zero-Store distribution endpoints
+- 2026-11-10 16:42:00: [bokkie-stash | server.js,public/app.js,public/index.html] - Completed <160-line modular compliance and client-side Zero-Store Vault Key pairing
+- 2026-11-10 16:46:01: [mymark-sandbox | views/stash_distro_module.js,views/page_modules.js] - Added ZERO_STORE_HUB and VISUAL_STEPS MyMmark SaaS archetypes
+- 2026-11-10 16:50:35: [bokkie-stash | public/index.html,public/app.js] - Enforced <160 line cap on app.js and added /vault prefix routing support
+- 2026-11-10 16:54:56: [bokkie-pulse-sandbox | ps1_sequencer.js, ps1_actions.js, ps1_bindings.js] - Enabled Always-Autoplay Infinite Filler Loop (pauses only by user) on Sandbox :3016
+- 2026-11-10 16:55:36: [mymark-engine | views/stash_distro_module.js,views/page_modules.js,/etc/caddy/Caddyfile] - Launched stash.mymark.co.za Zero-Store SaaS storefront with /vault/* split-proxy to :3026
+- 2026-11-10 16:55:36: [bokkie-stash | server.js] - Added X-Stash-Base and /vault/quick prefix support for stash.mymark.co.za
+- 2026-11-10 16:58:30: [bokkie-pulse-sandbox | ps1_sequencer.js, ps1_actions.js, ps1_bindings.js] - Enabled Always-Autoplay Infinite Filler Loop (pauses only by user) on Sandbox :3016
+- 2026-11-10 17:02:08: [mymark-engine | hq_catalog.js] - Registered MyMmark Stash (:3026) shortcut & sub-apps in MyMmark HQ
+- 2026-11-10 17:02:08: [bokkie-stash | docs/APP_RULES.md,.gitignore] - Added APP_RULES.md and hardened .gitignore prior to GitHub sync
+- 2026-11-10 17:02:20: [mymark-engine | hq_catalog.js] - Registered MyMmark Stash (:3026) shortcut & sub-apps in MyMmark HQ
+- 2026-11-10 17:02:20: [bokkie-stash | docs/APP_RULES.md,.gitignore] - Added APP_RULES.md and hardened .gitignore prior to GitHub sync
+- 2026-11-10 17:02:35: [mymark-engine | hq_catalog.js] - Registered MyMmark Stash (:3026) shortcut & sub-apps in MyMmark HQ
+- 2026-11-10 17:02:35: [bokkie-stash | docs/APP_RULES.md,.gitignore] - Added APP_RULES.md and hardened .gitignore prior to GitHub sync
+- [2026-11-10 15:03 UTC] Synced bokkie-stash to GitHub (vermaakves-cloud/bokkie-stash).

@@ -1,0 +1,4 @@
+- [2026-11-10 10:40 UTC] Fixed multi-line sqlite3 -json array slicing in db.js using lastIndexOf('\n[').
+- [2026-11-10 11:18 UTC] Fixed null subsection SQL join bug in db.js where Array.join turned null into empty string.
+- [2026-11-10 11:27 UTC] Resolved unclickable top buttons caused by Cloudflare edge cache serving stale /app.js against updated index.html; added ?v=3 cache-busting and synchronous null-safe initEvents().
+- [2026-11-10 11:29 UTC] Avoided curl exit 23 broken-pipe by writing smoke-test output to /tmp before head; trimmed index.html and app.js under 160-line modular cap.
